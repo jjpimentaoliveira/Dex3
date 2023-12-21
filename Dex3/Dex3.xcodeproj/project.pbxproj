@@ -15,6 +15,7 @@
 		CA21F2872B347AAE000229C0 /* Dex3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA21F2852B347AAE000229C0 /* Dex3.xcdatamodeld */; };
 		CAFF30362B348EB400FBF198 /* TempPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFF30352B348EB300FBF198 /* TempPokemon.swift */; };
 		CAFF30382B34A52B00FBF198 /* FetchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFF30372B34A52B00FBF198 /* FetchController.swift */; };
+		CAFF303A2B34AAC500FBF198 /* PokemonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFF30392B34AAC500FBF198 /* PokemonViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		CA21F2862B347AAE000229C0 /* Dex3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dex3.xcdatamodel; sourceTree = "<group>"; };
 		CAFF30352B348EB300FBF198 /* TempPokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempPokemon.swift; sourceTree = "<group>"; };
 		CAFF30372B34A52B00FBF198 /* FetchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchController.swift; sourceTree = "<group>"; };
+		CAFF30392B34AAC500FBF198 /* PokemonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				CA21F27C2B347AAD000229C0 /* ContentView.swift */,
 				CAFF30352B348EB300FBF198 /* TempPokemon.swift */,
 				CAFF30372B34A52B00FBF198 /* FetchController.swift */,
+				CAFF30392B34AAC500FBF198 /* PokemonViewModel.swift */,
 				CA21F2832B347AAE000229C0 /* Persistence.swift */,
 				CA21F2852B347AAE000229C0 /* Dex3.xcdatamodeld */,
 				CA21F27E2B347AAE000229C0 /* Assets.xcassets */,
@@ -152,6 +155,7 @@
 				CA21F2842B347AAE000229C0 /* Persistence.swift in Sources */,
 				CA21F2872B347AAE000229C0 /* Dex3.xcdatamodeld in Sources */,
 				CAFF30382B34A52B00FBF198 /* FetchController.swift in Sources */,
+				CAFF303A2B34AAC500FBF198 /* PokemonViewModel.swift in Sources */,
 				CAFF30362B348EB400FBF198 /* TempPokemon.swift in Sources */,
 				CA21F27D2B347AAD000229C0 /* ContentView.swift in Sources */,
 				CA21F27B2B347AAD000229C0 /* Dex3App.swift in Sources */,
