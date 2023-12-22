@@ -67,8 +67,8 @@
 			children = (
 				CA21F27A2B347AAD000229C0 /* Dex3App.swift */,
 				CA21F27C2B347AAD000229C0 /* ContentView.swift */,
-				CAFF30352B348EB300FBF198 /* TempPokemon.swift */,
 				CAFF303B2B34B49A00FBF198 /* PokemonDetail.swift */,
+				CAFF30352B348EB300FBF198 /* TempPokemon.swift */,
 				CAFF303D2B34B6B800FBF198 /* SamplePokemon.swift */,
 				CAFF30372B34A52B00FBF198 /* FetchController.swift */,
 				CAFF30392B34AAC500FBF198 /* PokemonViewModel.swift */,
