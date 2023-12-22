@@ -15,7 +15,7 @@ struct PokemonDetail: View {
     var body: some View {
         ScrollView {
             ZStack {
-                Image(.normalgrasselectricpoisonfairy)
+                Image(pokemon.background)
                     .resizable()
                     .scaledToFit()
                     .shadow(color: .black, radius: 6)
@@ -32,7 +32,6 @@ struct PokemonDetail: View {
                 }
             }
 
-
             HStack {
                 ForEach(pokemon.types!, id: \.self) { type in
                     Text(type.capitalized)
@@ -47,6 +46,13 @@ struct PokemonDetail: View {
                 Spacer()
             }
             .padding()
+
+            Text("Stats")
+                .font(.title)
+                .padding(.bottom, -10)
+
+            Stats()
+                .environmentObject(pokemon)
         }
         .navigationTitle(pokemon.name!.capitalized)
         .toolbar {
@@ -55,9 +61,10 @@ struct PokemonDetail: View {
                     showShiny.toggle()
                 } label: {
                     if showShiny {
-                        Image(systemName: "wand.and.stars").foregroundStyle(.yellow)
+                        Image(systemName: "wand.and.stars")
+                            .foregroundStyle(.yellow)
                     } else {
-                        Image(systemName: "wand.and.starts.inverse")
+                        Image(systemName: "wand.and.stars.inverse")
                     }
                 }
             }

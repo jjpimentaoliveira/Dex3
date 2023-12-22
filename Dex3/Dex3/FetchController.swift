@@ -5,6 +5,7 @@
 //  Created by José João Pimenta Oliveira on 21/12/2023.
 //
 
+import CoreData
 import Foundation
 
 struct FetchController {
@@ -16,7 +17,12 @@ struct FetchController {
 
     private let baseURL = URL(string: "https://pokeapi.co/api/v2/pokemon/")!
 
-    func fetchAllPokemon() async throws -> [TempPokemon] {
+    func fetchAllPokemon() async throws -> [TempPokemon]? {
+
+        if hasPokemon() {
+            return nil
+        }
+
         var allPokemon: [TempPokemon] = []
 
         var fetchComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
@@ -67,5 +73,20 @@ struct FetchController {
         print("Fetched \(tempPokemon.id): \(tempPokemon.name)")
 
         return tempPokemon
+    }
+
+    private func hasPokemon() -> Bool {
+        let context = PersistenceController.shared.container.newBackgroundContext()
+        let fetchRequest: NSFetchRequest<Pokemon> = Pokemon.fetchRequest()
+        
+        fetchRequest.predicate = NSPredicate(format: "id IN %@", [1, 386])
+
+        do {
+            let checkPokemon = try context.fetch(fetchRequest)
+            return checkPokemon.count == 2
+        } catch {
+            print("Fetch failed: \(error)")
+            return false
+        }
     }
 }

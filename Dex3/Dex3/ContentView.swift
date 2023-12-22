@@ -16,39 +16,48 @@ struct ContentView: View {
         animation: .default)
     private var pokedex: FetchedResults<Pokemon>
 
-    var body: some View {
-        NavigationStack {
-            List(pokedex) { pokemon in
-                NavigationLink(value: pokemon) {
-                    AsyncImage(url: pokemon.sprite) { image in
-                        image
-                            .resizable()
-                            .scaledToFit()
-                    } placeholder: {
-                        ProgressView()
-                    }
-                    .frame(width: 100, height: 100)
+    @StateObject private var pokemonViewModel = PokemonViewModel(controller: FetchController())
 
-                    Text(pokemon.name!.capitalized)
+    var body: some View {
+        switch pokemonViewModel.status {
+        case .notStarted:
+            ProgressView()
+
+        case .fetching:
+            ProgressView()
+
+        case .success:
+            NavigationStack {
+                List(pokedex) { pokemon in
+                    NavigationLink(value: pokemon) {
+                        AsyncImage(url: pokemon.sprite) { image in
+                            image
+                                .resizable()
+                                .scaledToFit()
+                        } placeholder: {
+                            ProgressView()
+                        }
+                        .frame(width: 100, height: 100)
+
+                        Text("#\(pokemon.id) ")
+                            .fontWeight(.medium)
+                        Text(pokemon.name!.capitalized)
+                    }
+                }
+                .navigationTitle("Pokédex")
+                .navigationDestination(for: Pokemon.self, destination: { pokemon in
+                    PokemonDetail()
+                        .environmentObject(pokemon)
+                })
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        EditButton()
+                    }
                 }
             }
-            .navigationTitle("Pokédex")
-            .navigationDestination(for: Pokemon.self, destination: { pokemon in
-                // TODO: Pokemon Details View
-                AsyncImage(url: pokemon.sprite) { image in
-                    image
-                        .resizable()
-                        .scaledToFit()
-                } placeholder: {
-                    ProgressView()
-                }
-                .frame(width: 100, height: 100)
-            })
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-            }
+
+        case .failed:
+            ProgressView()
         }
     }
 }
